@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": [
+        "furniture-fit/src",
+        "furniture-fit/lib"
+    ]
+}
