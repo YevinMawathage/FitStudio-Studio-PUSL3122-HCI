@@ -92,10 +92,7 @@ public class HomePage {
         // Menu Buttons with Icons
         String[] menuItems = {
                 "Create Designs",
-                "Manage Designs",
-                "Furniture Catalogue",
-                "Help & Tutorials",
-                "Inventory & Stock"
+                "Manage Designs"
         };
 
         String[] iconPaths = {
@@ -146,18 +143,6 @@ public class HomePage {
                         case "Manage Designs":
                             frame.dispose();
                             new Manage_Design();
-                            break;
-                        case "Furniture Catalogue":
-                            frame.dispose();
-                            new FurnitureCatalogue();
-                            break;
-                        case "Help & Tutorials":
-                            frame.dispose();
-                            new HelpTutorialsPage();
-                            break;
-                        case "Inventory & Stock":
-                            frame.dispose();
-                            new StockPage();
                             break;
                     }
                 }
