@@ -159,6 +159,7 @@ public class HomePage {
                             frame.dispose();
                             new StockPage();
                             break;
+
                     }
                 }
             });
