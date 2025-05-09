@@ -127,7 +127,71 @@ public class OBJViewer extends JFrame implements GLEventListener, MouseMotionLis
     }
 
     // Panel for Room Settings
+    private JPanel createRoomPanel() {
+        JPanel roomPanel = new JPanel();
+        roomPanel.setBackground(new Color(0, 0, 0));
+        roomPanel.setLayout(new BoxLayout(roomPanel, BoxLayout.Y_AXIS));
+        roomPanel.setBorder(BorderFactory.createTitledBorder(null, "Room Settings",
+                TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION,
+                new Font("Arial", Font.PLAIN, 14), Color.WHITE));
 
+        JLabel lengthLabel = new JLabel("Room Length:");
+        lengthLabel.setForeground(Color.WHITE);
+        lengthLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JSlider lengthSlider = new JSlider(0, 20, (int) roomLength);
+        lengthSlider.setPreferredSize(new Dimension(250, 40));  // Make the slider bigger
+        lengthSlider.setBackground(new Color(0xEEEEEE));  // Set background color
+        lengthSlider.setForeground(Color.WHITE);  // Set thumb and track color
+
+        // Customize the ticks and labels
+        lengthSlider.setMajorTickSpacing(5);
+        lengthSlider.setMinorTickSpacing(1);
+        lengthSlider.setPaintTicks(true);
+        lengthSlider.setPaintLabels(true);
+        lengthSlider.setFont(new Font("Arial", Font.PLAIN, 12));
+        lengthSlider.setForeground(Color.WHITE);  // Set thumb and track color
+
+        JLabel lengthValueLabel = new JLabel("Length: " + roomLength);
+        lengthValueLabel.setForeground(Color.WHITE);
+        lengthSlider.addChangeListener(e -> {
+            roomLength = lengthSlider.getValue();  // Update roomLength
+            lengthValueLabel.setText("Length: " + roomLength);  // Update label with the new value
+        });
+
+        JLabel widthLabel = new JLabel("Room Width:");
+        widthLabel.setForeground(Color.WHITE);
+        widthLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JSlider widthSlider = new JSlider(0, 20, (int) roomWidth);
+        widthSlider.setPreferredSize(new Dimension(250, 40));  // Make the slider bigger
+        widthSlider.setBackground(new Color(0xEEEEEE));  // Set background color
+        widthSlider.setForeground(new Color(0x007BFF));
+
+        widthSlider.setMajorTickSpacing(5);
+        widthSlider.setMinorTickSpacing(1);
+        widthSlider.setPaintTicks(true);
+        widthSlider.setPaintLabels(true);
+        widthSlider.setFont(new Font("Arial", Font.PLAIN, 12));
+        lengthSlider.setForeground(Color.WHITE);  // Set thumb and track color
+        JLabel widthValueLabel = new JLabel("Width: " + roomWidth);
+        widthValueLabel.setForeground(Color.WHITE);
+        widthSlider.addChangeListener(e -> {
+            roomWidth = widthSlider.getValue();  // Update roomWidth
+            widthValueLabel.setText("Width: " + roomWidth);  // Update label with the new value
+        });
+
+        roomPanel.add(lengthLabel);
+        roomPanel.add(lengthSlider);
+        roomPanel.add(lengthValueLabel);
+        roomPanel.add(Box.createVerticalStrut(10));
+        roomPanel.add(widthLabel);
+        roomPanel.add(widthSlider);
+        roomPanel.add(widthValueLabel);
+        roomPanel.add(Box.createVerticalStrut(10));
+
+
+
+        return roomPanel;
+    }
 
     // Panel for Furniture Catalogue
     private JPanel createFurniturePanel() {
